@@ -1,18 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :leads
+  resources :leads do
+    resources :feedbacks, only: [:new, :create]
+  end
+
   resources :scenarios
-  resources :feedbacks
-  resources :loan_conditions
-  resources :posts
-  resources :comments
+  resources :loan_conditions, only: [:index, :show]
+  resources :rate_points, only: [:index, :show, :new, :create] # optional, if rate points are manually managed
   resources :images, only: [:create]
 
-  # Route to display OCR results
+  # Display OCR results stored in session
   get 'results', to: 'images#results'
 
-  # Temporary route for testing OCR ingestion
+  # Test endpoint for verifying OCR ingestion
   post 'test_ocr', to: 'images#test_ocr'
 
   root to: 'leads#index'
