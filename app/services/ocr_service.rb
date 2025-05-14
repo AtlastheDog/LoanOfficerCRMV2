@@ -11,7 +11,7 @@ class OcrService
       headers: { 'apikey' => @api_key },
       body: {
         'language' => 'eng',
-        'isOverlayRequired' => false,
+        'isOverlayRequired' => true, # changed from false to true to enable overlay
         'url' => '',
         'iscreatesearchablepdf' => false,
         'issearchablepdfhidetextlayer' => false,
@@ -28,7 +28,7 @@ class OcrService
         raise "OCR Error: #{result['ErrorMessage']}"
       end
 
-      result['ParsedResults'].first['ParsedText']
+      result
     rescue => e
       puts "Error parsing image: #{e.message}"
       nil
@@ -56,4 +56,20 @@ class OcrService
 
     results
   end
-end
+
+  def extract_rate_price_pairs_from_overlay(json_data)
+    lines = json_data.dig("ParsedResults", 0, "Overlay", "Lines")
+    return [] unless lines
+
+    rows = Hash.new { |h, k| h[k] = {} }
+
+    lines.each do |line|
+      min_top = line["MinTop"]
+      text = line["LineText"]
+
+      if text.match?(/^\d+\.\d{3}$/)
+        rows[min_top][:rate] ||= text.to_f
+      elsif text.match?(/^\d{2,3}\.\d{3}$/)
+        rows[min_top][:price] ||= text.to_f
+      elsif text.match?(/^\$\d{1,3}(,\d{3})?$/)
+        rows[min_top][:]()_]()
