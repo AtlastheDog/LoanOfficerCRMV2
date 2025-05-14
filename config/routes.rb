@@ -2,12 +2,16 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :leads do
+    collection do
+      get :analyze  # GET /leads/analyze → LeadsController#analyze
+    end
+
     resources :feedbacks, only: [:new, :create]
   end
 
   resources :scenarios
   resources :loan_conditions, only: [:index, :show]
-  resources :rate_points, only: [:index, :show, :new, :create] # optional, if rate points are manually managed
+  resources :rate_points, only: [:index, :show, :new, :create]
   resources :images, only: [:create]
 
   # Display OCR results stored in session
@@ -18,4 +22,3 @@ Rails.application.routes.draw do
 
   root to: 'leads#index'
 end
-

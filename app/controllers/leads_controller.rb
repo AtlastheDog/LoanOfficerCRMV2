@@ -7,6 +7,11 @@ class LeadsController < ApplicationController
     @leads = Lead.includes(scenarios: :rate_points).all
   end
 
+  # GET /leads/analyze
+  def analyze
+    @recommended_leads = LeadMatcher.match_all(current_user.leads)
+  end
+
   # GET /leads/1
   def show
     @scenarios = @lead.scenarios.includes(:rate_points)
@@ -77,20 +82,5 @@ class LeadsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_lead
-    @lead = Lead.find(params[:id])
-  end
-
-  # Only allow a list of trusted parameters through.
-  def lead_params
-    params.require(:lead).permit(
-      :first_name, :last_name, :phone_number, :email,
-      :creation_date, :last_contacted_date, :fico_score,
-      :loan_type, :property_value, :loan_value, :loan_purpose,
-      :state, :occupancy, :interest_level, :notes,
-      :minimum_rate_needed, :maximum_points_needed,
-      :user_id, :actual_interest_rate
-    )
-  end
-end
+    @lead =
