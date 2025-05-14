@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_14_002357) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_14_040240) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -64,6 +64,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_14_002357) do
     t.index ["user_id"], name: "index_loan_conditions_on_user_id"
   end
 
+  create_table "rate_points", force: :cascade do |t|
+    t.bigint "scenario_id", null: false
+    t.decimal "rate"
+    t.decimal "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["scenario_id"], name: "index_rate_points_on_scenario_id"
+  end
+
   create_table "scenarios", force: :cascade do |t|
     t.bigint "lead_id", null: false
     t.decimal "actual_interest_rate"
@@ -78,6 +87,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_14_002357) do
     t.decimal "actual_cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "points"
     t.index ["lead_id"], name: "index_scenarios_on_lead_id"
   end
 
@@ -97,5 +107,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_14_002357) do
   add_foreign_key "feedbacks", "users"
   add_foreign_key "leads", "users"
   add_foreign_key "loan_conditions", "users"
+  add_foreign_key "rate_points", "scenarios"
   add_foreign_key "scenarios", "leads"
 end
