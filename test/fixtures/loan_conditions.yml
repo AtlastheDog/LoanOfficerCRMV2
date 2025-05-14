@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  interest_rate: 9.99
+  fico_score_group: MyText
+  loan_type_group: MyText
+  property_value_group: MyText
+  loan_value_group: MyText
+  loan_purpose_group: MyText
+  state: MyText
+  occupancy: MyText
+  cost: 9.99
+  user: one
+
+two:
+  interest_rate: 9.99
+  fico_score_group: MyText
+  loan_type_group: MyText
+  property_value_group: MyText
+  loan_value_group: MyText
+  loan_purpose_group: MyText
+  state: MyText
+  occupancy: MyText
+  cost: 9.99
+  user: two

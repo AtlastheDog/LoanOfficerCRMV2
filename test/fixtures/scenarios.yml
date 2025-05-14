@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lead: one
+  actual_interest_rate: 9.99
+  fico_score_group: MyText
+  loan_type_group: MyText
+  property_type_group: MyText
+  property_value_group: MyText
+  loan_value_group: MyText
+  loan_purpose_group: MyText
+  state: MyText
+  occupancy: MyText
+  actual_cost: 9.99
+
+two:
+  lead: two
+  actual_interest_rate: 9.99
+  fico_score_group: MyText
+  loan_type_group: MyText
+  property_type_group: MyText
+  property_value_group: MyText
+  loan_value_group: MyText
+  loan_purpose_group: MyText
+  state: MyText
+  occupancy: MyText
+  actual_cost: 9.99

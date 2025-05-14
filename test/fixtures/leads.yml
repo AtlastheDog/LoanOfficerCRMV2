@@ -1,0 +1,41 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyText
+  last_name: MyText
+  phone_number: MyText
+  email: MyText
+  creation_date: 2025-05-14
+  last_contacted_date: 2025-05-14
+  fico_score: 1
+  loan_type: MyText
+  property_value: 9.99
+  loan_value: 9.99
+  loan_purpose: MyText
+  state: MyText
+  occupancy: MyText
+  interest_level: 1
+  notes: MyText
+  minimum_rate_needed: 9.99
+  maximum_points_needed: 9.99
+  user: one
+
+two:
+  first_name: MyText
+  last_name: MyText
+  phone_number: MyText
+  email: MyText
+  creation_date: 2025-05-14
+  last_contacted_date: 2025-05-14
+  fico_score: 1
+  loan_type: MyText
+  property_value: 9.99
+  loan_value: 9.99
+  loan_purpose: MyText
+  state: MyText
+  occupancy: MyText
+  interest_level: 1
+  notes: MyText
+  minimum_rate_needed: 9.99
+  maximum_points_needed: 9.99
+  user: two
