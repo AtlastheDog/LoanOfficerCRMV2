@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_14_040240) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_14_201136) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,6 +20,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_14_040240) do
     t.text "feedback"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "satisfied_rate"
+    t.boolean "satisfied_points"
+    t.text "comments"
     t.index ["lead_id"], name: "index_feedbacks_on_lead_id"
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
@@ -45,6 +48,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_14_040240) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "property_type"
     t.index ["user_id"], name: "index_leads_on_user_id"
   end
 
@@ -88,6 +92,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_14_040240) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "points"
+    t.date "rate_sheet_date"
     t.index ["lead_id"], name: "index_scenarios_on_lead_id"
   end
 
