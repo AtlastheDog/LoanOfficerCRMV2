@@ -1,4 +1,4 @@
-class CreateRatePoints < ActiveRecord::Migration[8.0]
+class CreateRatePoints < ActiveRecord::Migration[6.1]
   def change
     create_table :rate_points do |t|
       t.references :scenario, null: false, foreign_key: true
