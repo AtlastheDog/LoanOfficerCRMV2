@@ -1,8 +1,8 @@
 "use client"
 
 import { Outlet } from "react-router-dom"
-import Navbar from "./Navbar"
-import Sidebar from "./Sidebar"
+import Navbar from "./shared/Navbar"
+import Sidebar from "./shared/Sidebar"
 import { useAuth } from "../contexts/AuthContext"
 
 const Layout = () => {

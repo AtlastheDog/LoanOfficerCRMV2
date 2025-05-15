@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useParams, Link, useNavigate } from "react-router-dom"
 import api from "../../services/api"
 import { Edit, ArrowLeft, User, Phone, Mail, Home, DollarSign, Percent, CreditCard, Upload } from "lucide-react"
-import LoadingSpinner from "../../components/LoadingSpinner"
+import LoadingSpinner from "../../components/shared/LoadingSpinner"
 
 interface Lead {
   id: number

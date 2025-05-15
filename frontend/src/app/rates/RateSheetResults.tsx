@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { ArrowLeft, BarChart, Save } from "lucide-react"
 import api from "../../services/api"
-import LoadingSpinner from "../../components/LoadingSpinner"
+import LoadingSpinner from "../../components/shared/LoadingSpinner"
 
 interface RatePoint {
   rate: number

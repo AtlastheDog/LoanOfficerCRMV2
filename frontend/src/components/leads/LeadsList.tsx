@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Edit, Trash2, Search, Plus } from "lucide-react"
-import LoadingSpinner from "../LoadingSpinner"
+import LoadingSpinner from "../shared/LoadingSpinner"
 import { fetchLeads, deleteLead } from "@/lib/api"
 
 interface Lead {

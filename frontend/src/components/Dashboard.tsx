@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Users, Upload, BarChart } from "lucide-react"
-import LoadingSpinner from "./LoadingSpinner"
+import LoadingSpinner from "./shared/LoadingSpinner"
 import { fetchDashboardData } from "@/lib/api"
 
 interface DashboardStats {

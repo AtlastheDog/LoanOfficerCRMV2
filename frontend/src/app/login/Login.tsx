@@ -1,10 +1,9 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
-import { Link, useNavigate, useLocation } from "react-router-dom"
-import { useAuth } from "../contexts/AuthContext"
+import { useRouter } from "next/navigation"
+import Link from "next/link"
+import { useAuth } from "@/contexts/AuthContext"
 
 const Login = () => {
   const [email, setEmail] = useState("")
@@ -12,11 +11,7 @@ const Login = () => {
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const { login } = useAuth()
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  // Get the page they were trying to access before being redirected to login
-  const from = location.state?.from?.pathname || "/"
+  const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -25,7 +20,7 @@ const Login = () => {
 
     try {
       await login(email, password)
-      navigate(from, { replace: true })
+      router.push("/") // redirect to dashboard or home after login
     } catch (err) {
       setError("Failed to log in. Please check your credentials.")
     } finally {
@@ -37,7 +32,9 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            Sign in to your account
+          </h2>
         </div>
         {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
@@ -93,7 +90,7 @@ const Login = () => {
           <div className="text-center">
             <p className="text-sm text-gray-600">
               Don't have an account?{" "}
-              <Link to="/signup" className="font-medium text-blue-600 hover:text-blue-500">
+              <Link href="/signup" className="font-medium text-blue-600 hover:text-blue-500">
                 Sign up
               </Link>
             </p>

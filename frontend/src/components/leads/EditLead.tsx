@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { ArrowLeft, Save } from "lucide-react"
-import LoadingSpinner from "../LoadingSpinner"
+import LoadingSpinner from "../shared/LoadingSpinner"
 import { fetchLead, updateLead } from "@/lib/api"
 
 export default function EditLead({ id }: { id: string }) {

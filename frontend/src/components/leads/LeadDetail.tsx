@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { Edit, ArrowLeft, User, Phone, Mail, Home, DollarSign, Percent, CreditCard, Upload } from "lucide-react"
-import LoadingSpinner from "../LoadingSpinner"
+import LoadingSpinner from "../shared/LoadingSpinner"
 import { fetchLead } from "@/lib/api"
 
 interface Lead {

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { ArrowLeft, ThumbsUp, ThumbsDown, User, CreditCard, Percent } from "lucide-react"
 import api from "../../services/api"
-import LoadingSpinner from "../../components/LoadingSpinner"
+import LoadingSpinner from "../../components/shared/LoadingSpinner"
 
 interface MatchedLead {
   id: number
